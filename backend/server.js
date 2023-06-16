@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // cookie parser middleware
 app.use(cookieParser());
-const __dirname = path.resolve();
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')));
 
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API działa....');
   });
 }
-
+const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
